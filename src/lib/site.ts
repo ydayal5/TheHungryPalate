@@ -151,7 +151,10 @@ export const menu: Dish[] = [
 ];
 
 /** Every meal ships the same way — stated once, used in several places. */
-export const included = ["Steamed basmati rice", "Fresh naan"];
+export const included = ["Steamed basmati rice", "Fresh naan", "Kachumbar salad"];
+
+/** What kachumbar is, for anyone who has not met it. Stated once, used in several places. */
+export const kachumbar = "onion, tomato and cucumber diced with lemon juice and cilantro";
 
 export const fullAddress = `${site.contact.address.street}, ${site.contact.address.city}, ${site.contact.address.state} ${site.contact.address.zip}`;
 

@@ -8,7 +8,7 @@ import { money } from "@/lib/order";
  * in both the languages this kitchen actually cooks in.
  */
 const PHRASES = [
-  "Naan included",
+  "Naan & kachumbar included",
   "गरम मसाला",
   `${money(site.price)} a meal`,
   "टिक्का मसाला",

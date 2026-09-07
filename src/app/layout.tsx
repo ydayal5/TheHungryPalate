@@ -36,7 +36,7 @@ const mukta = Mukta({
 
 export const metadata: Metadata = {
   title: "The Hungry Palate — Home-cooked Indian in Batavia, Ohio",
-  description: `Priya Dayal cooks three Indian rice bowls a week from her kitchen in Batavia, Ohio. Order by ${site.schedule.cutoffLabel}, pick up Tuesday or Wednesday, ${site.schedule.pickupWindow.label}. $${site.price} a meal, naan included.`,
+  description: `Priya Dayal cooks three Indian rice bowls a week from her kitchen in Batavia, Ohio. Order by ${site.schedule.cutoffLabel}, pick up Tuesday or Wednesday, ${site.schedule.pickupWindow.label}. $${site.price} a meal, with naan and kachumbar salad.`,
   keywords: [
     "Indian food Batavia Ohio",
     "home cooked Indian meals",

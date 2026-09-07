@@ -12,7 +12,7 @@ const QUESTIONS = [
   },
   {
     q: "How much food is one meal?",
-    a: "One full bowl of steamed basmati with the curry over it, plus naan. It feeds one hungry adult, or stretches to two smaller plates alongside something else.",
+    a: "One full bowl of steamed basmati with the curry over it, plus naan and a side of kachumbar salad — onion, tomato and cucumber diced with lemon juice and cilantro. It feeds one hungry adult, or stretches to two smaller plates alongside something else.",
   },
   {
     q: "Can I change or cancel an order?",

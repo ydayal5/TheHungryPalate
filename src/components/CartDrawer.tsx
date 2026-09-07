@@ -232,7 +232,7 @@ function CartStep({
       <div className="py-10 text-center">
         <p className="display-md m-0">Nothing in the bag yet.</p>
         <p className="mx-auto mt-3 max-w-[36ch]" style={{ color: "var(--color-ink-soft)" }}>
-          Three dishes are cooking this week, all {money(site.price)} with naan.
+          Three dishes are cooking this week, all {money(site.price)} with naan and kachumbar.
         </p>
         <a href="#menu" onClick={onClose} className="btn mt-6">
           See the menu

@@ -90,7 +90,7 @@ export function DishPlate({ dish, className = "" }: { dish: Dish; className?: st
       viewBox="0 0 200 200"
       className={className}
       role="img"
-      aria-label={`Illustration of ${dish.name}: basmati rice with ${dish.tagline.toLowerCase()}, naan on the side`}
+      aria-label={`Illustration of ${dish.name}: basmati rice with ${dish.tagline.toLowerCase()}, naan and a bowl of kachumbar salad on the side`}
     >
       <defs>
         <radialGradient id={`rim-${uid}`} cx="34%" cy="24%">
@@ -225,6 +225,33 @@ export function DishPlate({ dish, className = "" }: { dish: Dish; className?: st
           transform={`translate(${x} ${y}) rotate(${rot})`}
         />
       ))}
+
+      {/* kachumbar, the other thing in every bag: onion, tomato, cucumber */}
+      <g transform="translate(146 148)">
+        <circle cx="24" cy="24" r="25" fill="#F6EEDE" stroke="#B4823F" strokeWidth="2.5" />
+        {[
+          { x: 14, y: 15, fill: "#C6392C" },
+          { x: 30, y: 13, fill: "#7FB069" },
+          { x: 21, y: 25, fill: "#D8C3DA" },
+          { x: 34, y: 26, fill: "#C6392C" },
+          { x: 14, y: 32, fill: "#7FB069" },
+          { x: 28, y: 36, fill: "#D8C3DA" },
+        ].map((dice, i) => (
+          <rect
+            key={`kachumbar-${i}`}
+            x={dice.x}
+            y={dice.y}
+            width="7.5"
+            height="7.5"
+            rx="1.6"
+            fill={dice.fill}
+            transform={`rotate(${i * 23} ${dice.x + 3.75} ${dice.y + 3.75})`}
+          />
+        ))}
+        {/* cilantro through it */}
+        <circle cx="24" cy="19" r="1.8" fill="#3E7A31" />
+        <circle cx="33" cy="33" r="1.8" fill="#3E7A31" />
+      </g>
 
       {/* naan, tucked under the rim — it comes with every meal */}
       <g transform="translate(2 6)">

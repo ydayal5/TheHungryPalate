@@ -102,7 +102,7 @@ export function Hero() {
                   opacity: 0.75,
                 }}
               >
-                per meal · naan included
+                per meal · naan &amp; kachumbar
               </span>
             </div>
             <Countdown />

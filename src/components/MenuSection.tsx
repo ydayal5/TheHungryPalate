@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { DishPlate } from "./DishPlate";
 import { useCart } from "./CartProvider";
 import { useReveal } from "./useReveal";
-import { included, menu, site, type Dish, type SpiceLevel } from "@/lib/site";
+import { included, kachumbar, menu, site, type Dish, type SpiceLevel } from "@/lib/site";
 import { money } from "@/lib/order";
 
 export function MenuSection() {
@@ -20,7 +20,7 @@ export function MenuSection() {
           <h2 className="display-lg mt-4">Three dishes, each over steamed basmati.</h2>
           <p className="prose-lead mt-5" style={{ color: "var(--color-ink-soft)" }}>
             Every meal is {money(site.price)} and arrives the same way — steamed white basmati
-            under the curry, with fresh naan on the side.
+            under the curry, fresh naan on the side, and a bowl of kachumbar: {kachumbar}.
           </p>
 
           <ul className="mt-6 flex flex-wrap gap-2 p-0" style={{ listStyle: "none" }}>
