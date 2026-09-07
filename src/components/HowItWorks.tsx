@@ -21,9 +21,9 @@ const STEPS = [
     body: "The site writes your order out and hands it to your own Messages or Mail app. Send it and Priya replies to confirm.",
   },
   {
-    day: "Tue & Wed morning",
+    day: "Tue & Wed",
     title: "Priya cooks",
-    body: "Everything is made the same day you collect it. Nothing is frozen, nothing is cooked over the weekend and held.",
+    body: "She cooks the week's three dishes for pickup — marinated chicken, keema, and chhole, each over a bed of steamed basmati.",
   },
   {
     day: `${site.schedule.pickupDays.join(" or ")}, ${site.schedule.pickupWindow.label}`,

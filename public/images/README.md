@@ -11,7 +11,7 @@ image: "/images/chicken-tikka-masala.jpg",
 Suggested filenames (any format works — .jpg, .png, .webp):
 
 - chicken-tikka-masala.jpg
-- keema-masala.jpg
+- keema-chicken.jpg
 - chhole-masala.jpg
 
 Shoot them straight down onto the bowl if you can — the layout crops each photo

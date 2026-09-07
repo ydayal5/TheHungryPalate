@@ -99,11 +99,6 @@ buttons at checkout, the FAQ and the structured data all follow.
 
 ## Still to do
 
-- [ ] **Priya's own words** — the two paragraphs in `src/components/AboutPriya.tsx`
-      are placeholder voice, marked with a `TODO`. Replace with her real story.
-- [ ] **Confirm the meat in Keema Masala** — described as "minced meat" in
-      `src/lib/site.ts` (marked with a `TODO`) because we did not know whether
-      she uses lamb, goat, chicken or turkey.
 - [ ] YouTube channel link (see above).
 - [ ] Food photography (see above).
 

@@ -16,16 +16,16 @@ import type { Dish } from "@/lib/site";
 type PlateArt = {
   curry: string;
   curryDark: string;
-  garnish: "cream" | "peas" | "ginger";
+  garnish: "cream" | "spices" | "ginger";
 };
 
 const ART: Record<string, PlateArt> = {
   "chicken-tikka-masala": { curry: "#C2402F", curryDark: "#93261C", garnish: "cream" },
-  "keema-masala": { curry: "#A85E1C", curryDark: "#7A400F", garnish: "peas" },
+  "keema-chicken": { curry: "#A85E1C", curryDark: "#7A400F", garnish: "spices" },
   "chhole-masala": { curry: "#6B3D1E", curryDark: "#432312", garnish: "ginger" },
 };
 
-const FALLBACK: PlateArt = { curry: "#A85E1C", curryDark: "#7A400F", garnish: "peas" };
+const FALLBACK: PlateArt = { curry: "#A85E1C", curryDark: "#7A400F", garnish: "spices" };
 
 /**
  * Rice grains scattered through the ring between the curry and the rim.
@@ -152,15 +152,35 @@ export function DishPlate({ dish, className = "" }: { dish: Dish; className?: st
         </>
       )}
 
-      {art.garnish === "peas" &&
-        [
-          [86, 84],
-          [112, 76],
-          [96, 112],
-          [122, 104],
-          [104, 132],
-          [78, 108],
-        ].map(([x, y]) => <circle key={`pea-${x}-${y}`} cx={x} cy={y} r="6" fill="#4E8F3C" />)}
+      {art.garnish === "spices" && (
+        <>
+          {/* the whole spices, left in the way they are cooked */}
+          {[
+            [88, 84, 25],
+            [116, 76, -15],
+            [98, 118, 55],
+            [126, 106, -40],
+          ].map(([x, y, rot]) => (
+            <ellipse
+              key={`spice-${x}-${y}`}
+              cx={x}
+              cy={y}
+              rx="7"
+              ry="3.4"
+              fill="#3F2410"
+              transform={`rotate(${rot} ${x} ${y})`}
+            />
+          ))}
+          {/* onion, ginger and garlic cooked down into it */}
+          {[
+            [80, 104],
+            [110, 136],
+            [134, 90],
+          ].map(([x, y]) => (
+            <circle key={`allium-${x}-${y}`} cx={x} cy={y} r="4.5" fill="#EBD9B0" opacity="0.85" />
+          ))}
+        </>
+      )}
 
       {art.garnish === "ginger" && (
         <>

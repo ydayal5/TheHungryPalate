@@ -12,19 +12,19 @@ const QUESTIONS = [
   },
   {
     q: "How much food is one meal?",
-    a: "One full rice bowl with the curry over it, plus naan, onion and lemon. It feeds one hungry adult, or stretches to two smaller plates alongside something else.",
+    a: "One full bowl of steamed basmati with the curry over it, plus naan. It feeds one hungry adult, or stretches to two smaller plates alongside something else.",
   },
   {
     q: "Can I change or cancel an order?",
-    a: `Yes, any time before ${site.schedule.cutoffLabel}. After that the shopping is done and the meat is marinating, so it is too late.`,
+    a: `Yes, any time before ${site.schedule.cutoffLabel}. After that the shopping and prep are already under way, so it is too late.`,
   },
   {
     q: "Is anything vegetarian?",
-    a: "Chhole Masala is fully vegetarian. It is cooked in the same kitchen as the meat dishes, in separate pans, so it is not suitable if you need a strictly separated kitchen.",
+    a: "Chhole Masala is fully vegetarian. It is cooked in the same kitchen as the chicken dishes, so it is not suitable if you need a strictly separated kitchen.",
   },
   {
     q: "I have an allergy — what should I know?",
-    a: "Chicken Tikka Masala contains dairy, and the naan contains wheat and dairy. Everything else is made from whole spices and fresh produce. Text before you order and Priya will tell you exactly what is in it.",
+    a: "Chicken Tikka Masala contains dairy from its cream sauce, and the naan contains wheat. Text before you order and Priya will tell you exactly what goes into each dish.",
   },
   {
     q: "Can you cook for a party?",

@@ -4,13 +4,14 @@ import { site } from "@/lib/site";
 import { useReveal } from "./useReveal";
 
 /**
- * TODO — placeholder voice.
- * Replace the two paragraphs below with Priya's own words when you have them.
- * Everything else on this section (links, spice box, layout) stays as is.
+ * Priya's own words, unedited. Her opening line is set as the heading rather
+ * than repeated in the body, so the section does not introduce her twice.
  */
+const STORY_HEADING = "Welcome to my culinary corner!";
+
 const STORY = [
-  "Priya has been cooking this food for her family for as long as her family has existed. The Hungry Palate started the way these things usually start — enough people asked for the recipe that it became easier to just cook for them.",
-  "She makes three dishes a week and no more, because three is what one person can cook properly in one morning. The masala is ground for each batch. The chickpeas are soaked the night before. Nothing is cooked on Sunday and reheated on Wednesday.",
+  "I’m Priya Dayal—a passionate home chef, proud mom to three college students, and wife to a supportive husband. Food is my love language, whether I’m crafting modern fusion or preserving my family’s heirloom recipes.",
+  "Over the years, I’ve shared my passion through food blogging, YouTube, cooking for local seniors, and posting Instagram reels. Inspired by years of glowing feedback, I’m excited for this next chapter: bringing rich, authentic, and thoughtfully prepared Indian cuisine straight to local households and food lovers.",
 ];
 
 /** The masala dabba — seven spices, the way every Indian kitchen keeps them. */
@@ -39,9 +40,9 @@ export function AboutPriya() {
       <div className="shell grid items-center gap-12 lg:grid-cols-[1fr_0.85fr] lg:gap-20">
         <div ref={copy.ref} className={copy.className}>
           <p className="eyebrow" style={{ color: "var(--color-chili)" }}>
-            The cook
+            The cook · {site.cook}
           </p>
-          <h2 className="display-lg mt-4">{site.cook}</h2>
+          <h2 className="display-lg mt-4">{STORY_HEADING}</h2>
 
           {STORY.map((paragraph) => (
             <p key={paragraph.slice(0, 24)} className="prose-lead mt-5" style={{ color: "var(--color-ink-soft)" }}>

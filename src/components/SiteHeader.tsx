@@ -15,11 +15,17 @@ const NAV = [
 
 export function SiteHeader() {
   const { meals, pulse, openCart } = useCart();
-  const [scrolled, setScrolled] = useState(false);
+  /**
+   * Defaults to "not at the top", i.e. a solid bar. The header's text is ivory,
+   * so a transparent default would render it invisible over the light bands
+   * until hydration — which is exactly what a deep link like /#priya does.
+   * Solid-by-default is legible everywhere; JS only clears it at the very top.
+   */
+  const [atTop, setAtTop] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => setAtTop(window.scrollY <= 40);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -29,8 +35,8 @@ export function SiteHeader() {
     <header
       className="sticky top-0 z-40 transition-colors duration-300"
       style={{
-        background: scrolled ? "var(--color-indigo-deep)" : "transparent",
-        borderBottom: scrolled ? "2px solid var(--color-marigold)" : "2px solid transparent",
+        background: atTop ? "transparent" : "var(--color-indigo-deep)",
+        borderBottom: atTop ? "2px solid transparent" : "2px solid var(--color-marigold)",
       }}
     >
       <div className="shell flex items-center justify-between gap-4 py-3">

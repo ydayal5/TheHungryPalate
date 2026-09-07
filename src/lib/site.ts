@@ -39,9 +39,9 @@ export const site = {
   cook: "Priya Dayal",
   tagline: "Home-cooked Indian, one week at a time",
   blurb:
-    "A small weekly kitchen in Batavia, Ohio. Priya cooks three rice bowls a week, " +
-    "the same way she cooks them for her own family — marinated overnight, " +
-    "ground fresh, simmered slow. You order by Sunday, you pick up hot on Tuesday or Wednesday.",
+    "A small weekly kitchen in Batavia, Ohio. Priya cooks three Indian rice bowls a week — " +
+    "marinated chicken, spiced ground chicken, and slow-cooked chickpeas — each over a bed " +
+    "of steamed basmati. You order by Sunday, you pick up hot on Tuesday or Wednesday.",
 
   price: 15,
   currency: "USD",
@@ -95,28 +95,25 @@ export const menu: Dish[] = [
     id: "chicken-tikka-masala",
     name: "Chicken Tikka Masala",
     nameHi: "चिकन टिक्का मसाला",
-    tagline: "Charred, then simmered in tomato and cream",
+    tagline: "Marinated chicken in a velvety tomato cream",
     description:
-      "Thigh meat sits overnight in yogurt, ginger, garlic and garam masala, then goes " +
-      "under the broiler until the edges catch. The char comes back into a tomato gravy " +
-      "finished with cream and crushed kasuri methi.",
-    notes: ["Marinated overnight", "Broiler-charred", "Mild by default"],
+      "Tender chunks of marinated chicken simmered in a velvety, spice-infused tomato and " +
+      "cream sauce, served over a bed of steamed white basmati rice.",
+    notes: ["Marinated chicken", "Tomato & cream", "Spice-infused"],
     vegetarian: false,
     allergens: ["Dairy"],
     image: null,
     accent: "chili",
   },
   {
-    id: "keema-masala",
-    name: "Keema Masala",
-    nameHi: "कीमा मसाला",
-    // TODO: confirm which meat Priya uses so this reads exactly right.
-    tagline: "Minced meat, peas, and whole spice",
+    id: "keema-chicken",
+    name: "Keema Chicken",
+    nameHi: "कीमा चिकन",
+    tagline: "Ground chicken sautéed with whole spices",
     description:
-      "Minced meat browned hard in a kadhai with onion, tomato and green chili, then " +
-      "cooked down low with peas until the fat separates and the whole spices — clove, " +
-      "black cardamom, bay — have given everything up.",
-    notes: ["Slow-cooked", "Sweet green peas", "Medium heat"],
+      "Flavorful ground chicken sautéed with whole spices, onion, ginger, and garlic, " +
+      "perfectly balanced over a bed of white basmati rice.",
+    notes: ["Ground chicken", "Whole spices", "Onion, ginger & garlic"],
     vegetarian: false,
     allergens: [],
     image: null,
@@ -126,11 +123,11 @@ export const menu: Dish[] = [
     id: "chhole-masala",
     name: "Chhole Masala",
     nameHi: "छोले मसाला",
-    tagline: "Chickpeas, tamarind-dark and tangy",
+    tagline: "Chickpeas slow-cooked in onion-tomato gravy",
     description:
-      "Chickpeas soaked from dry and simmered into an onion-tomato masala with amchur " +
-      "and anardana for sourness. Dark, thick, and finished with ginger cut into matchsticks.",
-    notes: ["Vegetarian", "Soaked from dry", "Tangy, not sweet"],
+      "Hearty chickpeas slow-cooked in onion-tomato gravy infused with aromatic whole spices, " +
+      "paired with a bed of steamed white basmati rice.",
+    notes: ["Vegetarian", "Slow-cooked", "Aromatic whole spices"],
     vegetarian: true,
     allergens: [],
     image: null,
@@ -139,11 +136,7 @@ export const menu: Dish[] = [
 ];
 
 /** Every meal ships the same way — stated once, used in several places. */
-export const included = [
-  "Basmati rice",
-  "Fresh naan",
-  "Onion & lemon",
-];
+export const included = ["Steamed basmati rice", "Fresh naan"];
 
 export const fullAddress = `${site.contact.address.street}, ${site.contact.address.city}, ${site.contact.address.state} ${site.contact.address.zip}`;
 
