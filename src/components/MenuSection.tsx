@@ -17,10 +17,10 @@ export function MenuSection() {
           <p className="eyebrow" style={{ color: "var(--color-chili)" }}>
             This week&rsquo;s three
           </p>
-          <h2 className="display-lg mt-4">Three dishes, each over steamed basmati.</h2>
+          <h2 className="display-lg mt-4">Three dishes, each over steamed basmati rice.</h2>
           <p className="prose-lead mt-5" style={{ color: "var(--color-ink-soft)" }}>
             Every meal is {money(site.price)} and arrives the same way — steamed white basmati
-            under the curry, fresh naan on the side, and a bowl of kachumbar: {kachumbar}.
+            rice under the curry, fresh naan on the side, and a bowl of kachumbar: {kachumbar}.
           </p>
 
           <ul className="mt-6 flex flex-wrap gap-2 p-0" style={{ listStyle: "none" }}>

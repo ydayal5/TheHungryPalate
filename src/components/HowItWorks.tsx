@@ -23,7 +23,7 @@ const STEPS = [
   {
     day: "Tue & Wed",
     title: "Priya cooks",
-    body: "She cooks the week's three dishes for pickup — marinated chicken, keema, and chhole, each over a bed of steamed basmati.",
+    body: "She cooks the week's three dishes for pickup — marinated chicken, keema, and chhole, each over a bed of steamed basmati rice.",
   },
   {
     day: `${site.schedule.pickupDays.join(" or ")}, ${site.schedule.pickupWindow.label}`,

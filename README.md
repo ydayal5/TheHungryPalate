@@ -48,7 +48,7 @@ image: "/images/chicken-tikka-masala.jpg",      // was: null
 Shoot straight down onto the bowl — each photo is cropped to a circle inside a
 brass rim, so a centred, square-ish composition works best. At least 800×800.
 
-Until a photo is set, the site **draws** that dish — a bed of basmati with the
+Until a photo is set, the site **draws** that dish — a bed of basmati rice with the
 curry ladled in, garnished with what is actually in it. The page looks finished
 either way, so there is no rush.
 

@@ -41,7 +41,7 @@ export const site = {
   blurb:
     "A small weekly kitchen in Batavia, Ohio. Priya cooks three Indian rice bowls a week — " +
     "marinated chicken, spiced ground chicken, and slow-cooked chickpeas — each over a bed " +
-    "of steamed basmati. You order by Sunday, you pick up hot on Tuesday or Wednesday.",
+    "of steamed basmati rice. You order by Sunday, you pick up hot on Tuesday or Wednesday.",
 
   price: 15,
   currency: "USD",

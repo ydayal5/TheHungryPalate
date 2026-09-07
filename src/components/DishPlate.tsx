@@ -8,7 +8,7 @@ import type { Dish } from "@/lib/site";
  * The plate that fronts each menu card.
  *
  * When a real photo is dropped into /public/images and named in `site.ts`, it
- * fills the brass rim. Until then the bowl is drawn top-down — a bed of basmati
+ * fills the brass rim. Until then the bowl is drawn top-down — a bed of basmati rice
  * with the curry ladled into the middle, garnished with what is genuinely in
  * that dish. The page never shows a grey box waiting for an asset.
  */
@@ -108,7 +108,7 @@ export function DishPlate({ dish, className = "" }: { dish: Dish; className?: st
       <circle cx="100" cy="100" r="95" fill={`url(#rim-${uid})`} />
       <circle cx="100" cy="100" r="86" fill="none" stroke="#8A5E12" strokeWidth="2" opacity="0.55" />
 
-      {/* bed of basmati */}
+      {/* bed of basmati rice */}
       <circle cx="100" cy="100" r="84" fill={`url(#rice-${uid})`} />
       {grains.map((grain, i) => (
         <ellipse
