@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 
 import { useCart } from "./CartProvider";
@@ -164,30 +165,18 @@ function MenuIcon({ open }: { open: boolean }) {
   );
 }
 
-/** The logo mark: a thali seen from above, quartered like a real one. */
+/** Priya's badge. The wordmark beside it carries the name, so this is decorative. */
 function Mark() {
   return (
-    <svg
-      viewBox="0 0 48 48"
+    <Image
+      src="/images/logo-mark.png"
+      alt=""
       aria-hidden="true"
+      width={84}
+      height={84}
+      priority
       className="h-9 w-9 shrink-0 sm:h-[42px] sm:w-[42px]"
-    >
-      <circle cx="24" cy="24" r="22" fill="var(--color-marigold)" />
-      <circle cx="24" cy="24" r="22" fill="none" stroke="var(--color-indigo-deep)" strokeWidth="2.5" />
-      <circle cx="24" cy="24" r="9" fill="var(--color-chili)" stroke="var(--color-indigo-deep)" strokeWidth="2" />
-      {[0, 90, 180, 270].map((deg) => (
-        <circle
-          key={deg}
-          cx="24"
-          cy="8.5"
-          r="5"
-          fill="var(--color-ivory)"
-          stroke="var(--color-indigo-deep)"
-          strokeWidth="2"
-          transform={`rotate(${deg} 24 24)`}
-        />
-      ))}
-    </svg>
+    />
   );
 }
 

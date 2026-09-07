@@ -106,6 +106,27 @@ buttons at checkout, the FAQ and the structured data all follow.
   Rozha One / Khand / Mukta — all drawn by Indian foundries, all carrying
   Devanagari, which is why the Hindi dish names set in the same faces.
 
+## The logo
+
+Priya's badge lives in three derived files, all generated from the screenshot
+she supplied:
+
+- `public/images/logo-mark.png` — background knocked out, artwork in the site's
+  ivory. Used in the header and footer, i.e. on the dark bands.
+- `public/images/logo-badge.png` — self-contained circular badge, black disc
+  with a transparent surround. Use this anywhere the background is light.
+- `src/app/icon.png` — the favicon. `src/app/opengraph-image.png` is the card
+  shown when the link is shared.
+
+The source was a phone screenshot, so it was cropped to the badge, masked to the
+circle (which removed the phone's OCR button floating near the rim), and had a
+threshold applied to drop the JPEG banding behind "HUNGRY". It is clean but it
+is still upscaled from a low-resolution original.
+
+**If Priya has the original logo file** — vector (SVG/AI/EPS) or a large PNG —
+replace these and regenerate: it will be noticeably sharper, especially the
+"THE" and "PALATE" lettering and the filigree.
+
 ## Still to do
 
 - [ ] YouTube channel link (see above).

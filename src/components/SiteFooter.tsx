@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { BlockPrintBand } from "./Ornaments";
 import { fullAddress, mapsUrl, site } from "@/lib/site";
 
@@ -15,10 +17,16 @@ export function SiteFooter() {
       <div style={{ background: "var(--color-indigo-deep)", color: "var(--color-ivory)" }}>
         <div className="shell grid gap-10 py-16 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <h2 className="m-0 text-[1.75rem]" style={{ color: "var(--color-ivory)" }}>
-              {site.name}
-            </h2>
-            <p className="mt-1 text-[1.1rem]" lang="hi" style={{ color: "var(--color-marigold)" }}>
+            {/* the badge stands in for the name here, so the heading is for structure only */}
+            <h2 className="sr-only">{site.name}</h2>
+            <Image
+              src="/images/logo-mark.png"
+              alt={site.name}
+              width={220}
+              height={220}
+              className="h-28 w-28"
+            />
+            <p className="mt-3 text-[1.1rem]" lang="hi" style={{ color: "var(--color-marigold)" }}>
               {site.nameHi}
             </p>
             <p className="mt-4 text-[0.98rem]" style={{ color: "rgba(253,243,227,0.7)" }}>
