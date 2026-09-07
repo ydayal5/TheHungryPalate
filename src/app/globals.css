@@ -1,0 +1,516 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   The Hungry Palate — design tokens
+
+   The visual world is Ajrakh block-print and bazaar poster: flat saturated
+   colour laid down in full-bleed bands, separated by printed textile dividers.
+   The page commits to that one world rather than shipping a light and a dark
+   variant, so every colour below is painted explicitly.
+--------------------------------------------------------------------------- */
+
+@theme {
+  --color-indigo: #15224f;
+  --color-indigo-deep: #0d1533;
+  --color-indigo-soft: #24356d;
+
+  --color-marigold: #f5a314;
+  --color-turmeric: #f6c445;
+  --color-chili: #c7332b;
+  --color-chili-deep: #98211d;
+  --color-cardamom: #1e7a5f;
+  --color-rose: #e4557a;
+
+  --color-ivory: #fdf3e3;
+  --color-ivory-deep: #f4e3c4;
+  --color-ink: #241b12;
+  --color-ink-soft: #5c4a38;
+
+  --font-display: var(--font-rozha), Georgia, serif;
+  --font-label: var(--font-khand), "Arial Narrow", sans-serif;
+  --font-body: var(--font-mukta), system-ui, sans-serif;
+
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* --------------------------------------------------------------------------- */
+/* Base                                                                        */
+/* --------------------------------------------------------------------------- */
+
+:root {
+  color-scheme: light;
+  --shell: 1180px;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Anchor jumps clear the sticky header instead of landing under it. */
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+body {
+  background: var(--color-ivory);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.02;
+  text-wrap: balance;
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: var(--color-marigold);
+  color: var(--color-indigo-deep);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-marigold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* --------------------------------------------------------------------------- */
+/* Layout primitives                                                           */
+/* --------------------------------------------------------------------------- */
+
+@layer components {
+  .shell {
+    width: 100%;
+    max-width: var(--shell);
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 5vw, 2.5rem);
+  }
+
+  .band {
+    position: relative;
+    padding-block: clamp(4rem, 9vw, 7rem);
+  }
+
+  .band-ivory {
+    background: var(--color-ivory);
+    color: var(--color-ink);
+  }
+  .band-paper {
+    background: var(--color-ivory-deep);
+    color: var(--color-ink);
+  }
+  .band-indigo {
+    background: var(--color-indigo);
+    color: var(--color-ivory);
+  }
+  .band-chili {
+    background: var(--color-chili);
+    color: var(--color-ivory);
+  }
+  .band-marigold {
+    background: var(--color-marigold);
+    color: var(--color-indigo-deep);
+  }
+
+  /* Small-caps signage label — the condensed face doing what it is for. */
+  .eyebrow {
+    font-family: var(--font-label);
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .eyebrow::before,
+  .eyebrow::after {
+    content: "";
+    width: 1.75rem;
+    height: 2px;
+    background: currentColor;
+    opacity: 0.45;
+  }
+
+  .display-xl {
+    font-size: clamp(2.5rem, 5.2vw, 4.4rem);
+  }
+  .display-lg {
+    font-size: clamp(2.5rem, 6.2vw, 4.75rem);
+  }
+  .display-md {
+    font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+  }
+
+  .prose-lead {
+    font-size: clamp(1.075rem, 1.5vw, 1.25rem);
+    line-height: 1.68;
+    max-width: 62ch;
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* Buttons                                                            */
+  /* ------------------------------------------------------------------ */
+
+  .btn {
+    --btn-bg: var(--color-marigold);
+    --btn-fg: var(--color-indigo-deep);
+    --btn-edge: var(--color-indigo-deep);
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    font-family: var(--font-label);
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    padding: 0.85rem 1.7rem;
+    background: var(--btn-bg);
+    color: var(--btn-fg);
+    border: 2px solid var(--btn-edge);
+    border-radius: 999px;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 4px 4px 0 var(--btn-edge);
+    transition:
+      transform 160ms var(--ease-spring),
+      box-shadow 160ms var(--ease-spring),
+      background-color 160ms ease;
+  }
+
+  .btn:hover:not(:disabled) {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0 var(--btn-edge);
+  }
+
+  .btn:active:not(:disabled) {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--btn-edge);
+  }
+
+  .btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    box-shadow: 2px 2px 0 var(--btn-edge);
+  }
+
+  .btn-chili {
+    --btn-bg: var(--color-chili);
+    --btn-fg: var(--color-ivory);
+  }
+  .btn-cardamom {
+    --btn-bg: var(--color-cardamom);
+    --btn-fg: var(--color-ivory);
+  }
+  .btn-ivory {
+    --btn-bg: var(--color-ivory);
+    --btn-fg: var(--color-indigo-deep);
+  }
+
+  .btn-ghost {
+    --btn-bg: transparent;
+    --btn-fg: currentColor;
+    --btn-edge: currentColor;
+    box-shadow: none;
+  }
+  .btn-ghost:hover:not(:disabled) {
+    box-shadow: none;
+    background: color-mix(in srgb, currentColor 12%, transparent);
+    transform: translateY(-2px);
+  }
+
+  .btn-sm {
+    font-size: 0.9rem;
+    padding: 0.55rem 1.1rem;
+    box-shadow: 3px 3px 0 var(--btn-edge);
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* Chips                                                              */
+  /* ------------------------------------------------------------------ */
+
+  .chip {
+    font-family: var(--font-label);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.22rem 0.7rem;
+    border-radius: 999px;
+    border: 1.5px solid currentColor;
+    white-space: nowrap;
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* Form fields                                                        */
+  /* ------------------------------------------------------------------ */
+
+  .field-label {
+    font-family: var(--font-label);
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-ink-soft);
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  .field {
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding: 0.7rem 0.9rem;
+    background: #fff;
+    color: var(--color-ink);
+    border: 2px solid var(--color-indigo);
+    border-radius: 10px;
+    transition:
+      box-shadow 140ms ease,
+      border-color 140ms ease;
+  }
+
+  .field:focus {
+    outline: none;
+    border-color: var(--color-marigold);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-marigold) 40%, transparent);
+  }
+
+  .field::placeholder {
+    color: color-mix(in srgb, var(--color-ink) 40%, transparent);
+  }
+
+  /* Segmented control — spice level, pickup day, payment method. */
+  .segment {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .segment-option {
+    font-family: var(--font-label);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--color-indigo);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--color-indigo);
+    cursor: pointer;
+    transition:
+      background-color 140ms ease,
+      color 140ms ease,
+      transform 140ms var(--ease-spring);
+  }
+
+  .segment-option:hover {
+    transform: translateY(-2px);
+  }
+
+  .segment-option[aria-pressed="true"] {
+    background: var(--color-indigo);
+    color: var(--color-ivory);
+  }
+}
+
+/* --------------------------------------------------------------------------- */
+/* Print motifs                                                                */
+/* --------------------------------------------------------------------------- */
+
+/* Faint block-print dot field, laid over flat bands so they read as cloth. */
+.print-field::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.09;
+  background-image:
+    radial-gradient(circle at 50% 50%, currentColor 1.4px, transparent 1.6px),
+    radial-gradient(circle at 0 0, currentColor 1.4px, transparent 1.6px);
+  background-size:
+    34px 34px,
+    34px 34px;
+  background-position:
+    0 0,
+    17px 17px;
+}
+
+/* --------------------------------------------------------------------------- */
+/* Motion                                                                      */
+/* --------------------------------------------------------------------------- */
+
+/*
+ * Entrances are CSS, not JavaScript, on purpose.
+ *
+ * A scroll reveal driven by JS leaves its content at opacity 0 in the served
+ * HTML — if the script is slow, blocked, or the visitor is a crawler, the copy
+ * never appears. These run off the stylesheet instead:
+ *   .enter      plays once on load and fills forwards (hero copy)
+ *   .reveal-in  is added when a section scrolls into view, and has NO fill, so
+ *               the element is fully visible both before and after it plays
+ */
+
+@keyframes hp-rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hp-word {
+  from {
+    opacity: 0;
+    transform: translateY(26px) rotate(-3deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.enter {
+  animation: hp-rise 0.62s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.enter-word {
+  display: inline-block;
+  animation: hp-word 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.reveal-in {
+  animation: hp-rise 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes hp-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes hp-spin-reverse {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes hp-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes hp-steam {
+  0% {
+    opacity: 0;
+    transform: translateY(6px) scaleX(0.85);
+  }
+  35% {
+    opacity: 0.65;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-32px) scaleX(1.3);
+  }
+}
+
+@keyframes hp-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+@keyframes hp-shimmer {
+  from {
+    background-position: 200% center;
+  }
+  to {
+    background-position: -200% center;
+  }
+}
+
+.spin-slow {
+  animation: hp-spin 64s linear infinite;
+}
+.spin-slower {
+  animation: hp-spin-reverse 96s linear infinite;
+}
+.bob {
+  animation: hp-bob 5.5s ease-in-out infinite;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: hp-marquee 34s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Gold-foil sweep. Spent once, on the price. */
+.foil {
+  background: linear-gradient(
+    100deg,
+    var(--color-turmeric) 20%,
+    #fff6d8 38%,
+    var(--color-marigold) 55%,
+    var(--color-turmeric) 75%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: hp-shimmer 6s linear infinite;
+}
+
+.steam-wisp {
+  animation: hp-steam 3.4s ease-out infinite;
+}
+
+/* Anyone who asked for less motion gets a still page, not a broken one. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    /* Delays must go too: the entrance animations fill backwards, so a
+       surviving delay would leave content invisible until it elapsed. */
+    animation-delay: 0ms !important;
+    transition-duration: 0.001ms !important;
+    transition-delay: 0ms !important;
+  }
+  .marquee-track {
+    animation: none;
+    transform: none;
+  }
+}
