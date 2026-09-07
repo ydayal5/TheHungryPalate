@@ -20,7 +20,7 @@ export function MenuSection() {
           <h2 className="display-lg mt-4">Three dishes, each over steamed basmati.</h2>
           <p className="prose-lead mt-5" style={{ color: "var(--color-ink-soft)" }}>
             Every meal is {money(site.price)} and arrives the same way — steamed white basmati
-            under the curry, with fresh naan on the side. Pick your heat when you add it.
+            under the curry, with fresh naan on the side.
           </p>
 
           <ul className="mt-6 flex flex-wrap gap-2 p-0" style={{ listStyle: "none" }}>
@@ -44,7 +44,7 @@ export function MenuSection() {
 
 function DishRow({ dish, flipped, isLast }: { dish: Dish; flipped: boolean; isLast: boolean }) {
   const { add, openCart } = useCart();
-  const [spice, setSpice] = useState<SpiceLevel>("Medium");
+  const [spice, setSpice] = useState<SpiceLevel>(site.defaultSpice);
   const [justAdded, setJustAdded] = useState(false);
   const reveal = useReveal<HTMLElement>();
 
@@ -113,24 +113,26 @@ function DishRow({ dish, flipped, isLast }: { dish: Dish; flipped: boolean; isLa
           ))}
         </ul>
 
-        <div className="mt-7">
-          <span className="field-label">Heat level</span>
-          <div className="segment" role="group" aria-label={`Heat level for ${dish.name}`}>
-            {site.spiceLevels.map((level) => (
-              <button
-                key={level}
-                type="button"
-                className="segment-option"
-                aria-pressed={spice === level}
-                onClick={() => setSpice(level)}
-              >
-                {level}
-              </button>
-            ))}
+        {site.features.spiceLevels && (
+          <div className="mt-7">
+            <span className="field-label">Heat level</span>
+            <div className="segment" role="group" aria-label={`Heat level for ${dish.name}`}>
+              {site.spiceLevels.map((level) => (
+                <button
+                  key={level}
+                  type="button"
+                  className="segment-option"
+                  aria-pressed={spice === level}
+                  onClick={() => setSpice(level)}
+                >
+                  {level}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
-        <div className="mt-6 flex flex-wrap items-center gap-3">
+        <div className="mt-7 flex flex-wrap items-center gap-3">
           <button type="button" onClick={handleAdd} className="btn" style={{ "--btn-bg": accentVar, "--btn-fg": "var(--color-ivory)" } as React.CSSProperties}>
             Add to order · {money(site.price)}
           </button>

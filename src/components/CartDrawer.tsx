@@ -265,7 +265,8 @@ function CartStep({
                   className="m-0 mt-1 text-[0.85rem] tracking-[0.14em] uppercase"
                   style={{ fontFamily: "var(--font-label)", color: "var(--color-ink-soft)" }}
                 >
-                  {line.spice} · {money(site.price)} each
+                  {site.features.spiceLevels ? `${line.spice} · ` : ""}
+                  {money(site.price)} each
                 </p>
                 <button
                   type="button"
@@ -539,6 +540,30 @@ function SendStep({
           </a>
         </div>
       )}
+
+      {/* The ask that closes the loop: she cooks three dishes a week and picks
+          the next three partly on what people say about these. */}
+      <div style={{ borderLeft: "3px solid var(--color-marigold)", paddingLeft: "0.95rem" }}>
+        <p
+          className="m-0 text-[0.7rem] tracking-[0.2em] uppercase"
+          style={{ fontFamily: "var(--font-label)", fontWeight: 600, color: "var(--color-chili)" }}
+        >
+          One more thing
+        </p>
+        <p className="mt-1.5 mb-0 text-[0.95rem]" style={{ color: "var(--color-ink-soft)" }}>
+          Once you have eaten, Priya would love to hear what you thought — feedback is greatly
+          appreciated, and it shapes what she cooks next week. Text her, or say hello{" "}
+          <a
+            href={site.links.instagram}
+            target="_blank"
+            rel="noreferrer"
+            style={{ color: "var(--color-cardamom)", fontWeight: 600 }}
+          >
+            on Instagram
+          </a>
+          .
+        </p>
+      </div>
 
       <button
         type="button"

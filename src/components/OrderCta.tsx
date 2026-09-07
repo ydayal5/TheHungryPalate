@@ -26,7 +26,7 @@ export function OrderCta() {
             Put your week&rsquo;s dinners in one text.
           </h2>
           <p className="prose-lead mt-5" style={{ color: "rgba(253,243,227,0.88)" }}>
-            Build the order here and the site writes it out for you — dishes, heat, pickup slot,
+            Build the order here and the site writes it out for you — dishes, pickup slot,
             total. Send it from your own phone and Priya texts back to confirm. Pay by Venmo at{" "}
             {site.payment.venmoHandle}, or cash when you collect.
           </p>

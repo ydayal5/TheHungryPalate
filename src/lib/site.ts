@@ -88,6 +88,21 @@ export const site = {
   },
 
   spiceLevels: ["Mild", "Medium", "Spicy"] as SpiceLevel[],
+
+  /** What every bowl is ordered at while the chooser is switched off. */
+  defaultSpice: "Medium" as SpiceLevel,
+
+  features: {
+    /**
+     * Per-bowl heat level. Off for launch: the chooser is hidden on the menu,
+     * in the cart, and in the order text Priya receives.
+     *
+     * The plumbing is all still here — every cart line carries a spice level
+     * and it is part of the line key — so flipping this to true is the only
+     * change needed to bring the feature back.
+     */
+    spiceLevels: false as boolean,
+  },
 } as const;
 
 export const menu: Dish[] = [

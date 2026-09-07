@@ -45,7 +45,13 @@ export const money = (amount: number) =>
 export function formatOrder(lines: CartLine[], details: OrderDetails): string {
   const items = lines
     .filter((l) => l.qty > 0)
-    .map((l) => `  ${l.qty}x ${dishById(l.dishId)?.name ?? l.dishId} (${l.spice})`)
+    .map((l) => {
+      const name = dishById(l.dishId)?.name ?? l.dishId;
+      // Heat is only stated when the customer actually got to choose it.
+      return site.features.spiceLevels
+        ? `  ${l.qty}x ${name} (${l.spice})`
+        : `  ${l.qty}x ${name}`;
+    })
     .join("\n");
 
   const meals = totalMeals(lines);

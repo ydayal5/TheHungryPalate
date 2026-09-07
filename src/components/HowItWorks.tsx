@@ -13,7 +13,7 @@ const STEPS = [
   {
     day: "Any day",
     title: "Pick your bowls",
-    body: "Three dishes, each at the heat you want. Add as many meals as you need — most families order four to six.",
+    body: "Three dishes to choose from. Add as many meals as you need — most families order four to six.",
   },
   {
     day: `By ${site.schedule.cutoffLabel}`,

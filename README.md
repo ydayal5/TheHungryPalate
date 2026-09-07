@@ -57,7 +57,7 @@ either way, so there is no rush.
 There is no order database and no server. The drawer builds the order, then
 hands the finished text to the customer's own Messages or Mail app:
 
-1. Customer adds bowls and picks a heat level for each.
+1. Customer adds bowls to the order.
 2. They enter name, phone, pickup day, time slot and payment method.
 3. The site formats the order and offers **Send as a text** (`sms:` to
    513-508-8866), **Send as an email** (`mailto:`), or **Copy the order**.
@@ -70,6 +70,15 @@ site says so explicitly.
 
 The cart survives a page reload (`localStorage`), so nobody loses a half-built
 order.
+
+### Heat levels (switched off)
+
+Per-bowl heat is built but hidden. `site.features.spiceLevels` in
+`src/lib/site.ts` is `false`, which removes the chooser from the menu, the heat
+label from the cart, and the `(Medium)` suffix from the order text Priya
+receives. Every cart line still carries a spice level and it is still part of
+the line key, so setting the flag to `true` is the only change needed to turn
+the feature back on.
 
 ## The weekly cycle
 
